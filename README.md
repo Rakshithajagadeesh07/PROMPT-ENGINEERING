@@ -339,7 +339,7 @@ Generative AI represents a shift from analytical machines to creative collaborat
 
 #### How Generative AI Works — Core Concepts
 
-#### Training Objective
+#### Training 
 
 - Models learn a representation of data distribution, often via likelihood estimation, adversarial training, or score matching.
 
@@ -398,7 +398,7 @@ Generative AI represents a shift from analytical machines to creative collaborat
 
 | Aspect | Traditional AI | Generative AI |
 |--------|----------------|---------------|
-| **Objective** | Make predictions or decisions. | Create new data similar to training examples. |
+| **** | Make predictions or decisions. | Create new data similar to training examples. |
 | **Learned Distribution** | Conditional distributions or decision boundaries. | Full data distribution or a model to sample from it. |
 | **Typical Outputs** | Labels, scores, actions. | Text, images, audio, code, molecules. |
 | **Training Signals** | Supervised loss, reward signals. | Likelihoods, adversarial loss, denoising loss. |
@@ -414,7 +414,7 @@ Generative AI represents a shift from analytical machines to creative collaborat
 - Creativity and automation: Produce drafts, designs, or prototypes quickly.
 - Data augmentation: Synthesize training data for low-data tasks.
 - Personalization: Tailor outputs to user preferences or contexts.
-- Cross-domain applications: Images from text, code from prompts, molecules from objectives.
+- Cross-domain applications: Images from text, code from prompts, molecules from s.
 - Increasing productivity: Assist writing, design, software development, and research.
 
 #### Limitations
@@ -680,7 +680,7 @@ For an input matrix $X$, the network projects it into three vectors:
 \right)V
 $$
 
-Where $\sqrt{d_k}$ is a scaling factor to prevent vanishing gradients during softmax.
+Where $\sqrt{d_k}$  is a scaling factor to prevent vanishing gradients during softmax.
 
 #### Multi-Head Mechanism
 
@@ -1834,25 +1834,6 @@ Example:
 
 This approach handles out-of-vocabulary words without dramatically increasing vocabulary size (typically **V ≈ 32,000–128,000**).
 
-#### Embedding Matrix (E)
-
-A lookup table of dimension:
-
-$$
-V \times d_{model}
-$$
-
-maps token index **i** to a continuous vector:
-
-$$
-e_i = E[i] \in \mathbb{R}^{d_{model}}
-$$
-
-#### Rotary Position Embedding (RoPE)
-
-RoPE multiplies **Query** and **Key** vectors by a rotation matrix to encode relative token distances directly inside the attention mechanism.
-
----
 
 #### C. The Core Transformer Mechanism
 
@@ -1936,28 +1917,6 @@ User: How do I cook rice?
 
 Assistant: Here are the steps...
 ```
-
----
-
-#### Reward Model & RLHF (PPO)
-
-A secondary **Reward Model** scores two AI-generated responses. **Proximal Policy Optimization (PPO)** then updates the language model to maximize reward while limiting divergence from the reference model using **KL-divergence**.
-
-The optimization objective is:
-
-$$
-\text{Objective}
-=
-E
-\left[
-R(x,y)
--
-\beta
-D_{KL}
-(\pi_{\phi}\parallel\pi_{ref})
-\right]
-$$
-
 ---
 
 #### Direct Preference Optimization (DPO)
